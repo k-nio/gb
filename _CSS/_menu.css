@@ -1,0 +1,112 @@
+#menu-principal, #menu-novo, #menu-formula, #menu-consulta, #menu-registros, #menu-estoque, #menu-relatorio, #menu-pedidos{
+        display: none;
+    }
+    #menu{
+        width: 300px;
+        height: auto;
+        min-height: calc(100% - 75px);
+        background: linear-gradient(#065959, #214949, #003333);
+        display: none;
+        position: relative;
+        z-index: 99;
+    }
+     #menu-principal:checked ~ #menu{
+         display: block;
+     }
+      label[for="menu-principal"]{
+    color: #fff;
+    padding: 1px 20px 0 15px;
+    font-size: 55px;
+    background-color: #003333;
+    position: absolute;
+    border: 1px #fff solid;
+    top: 5px;
+    left: 10px;
+     }
+     
+    ul li a{
+         text-decoration: none;
+         color: #fff;
+     }
+#menu-1 li{
+  cursor: pointer;  
+  width: 100%;  
+  line-height: 55px;
+  vertical-align:middle;
+  border: 1px #fff solid;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  list-style:none; 
+  color: #fff;
+  text-align: center;  
+     }
+      #menu-2, #menu-3,#menu-4,#menu-5,#menu-6,#menu-7,#menu-8 {
+         display: none;
+         
+     }
+    
+     #menu-novo:checked ~ #menu-2{
+         display: block;
+         background-color:#003333;
+     } #menu-formula:checked ~ #menu-3{
+         display: block;
+         background-color:#003333;
+     } #menu-consulta:checked ~ #menu-4{
+         display: block;
+         background-color:#003333;
+     } #menu-estoque:checked ~ #menu-5{
+         display: block;
+         background-color:#003333;
+     } #menu-relatorio:checked ~ #menu-6{
+         display: block;
+         background-color:#003333;
+     } #menu-pedidos:checked ~ #menu-7{
+         display: block;
+         background-color:#003333;
+     } #menu-registros:checked ~ #menu-8{
+         display: block;
+         background-color:#003333;
+     }
+     #seta-novo{
+      padding: 8px;
+      box-shadow: 2px -2px 0 1px #fff inset;
+      border: solid transparent;
+      border-width: 0 0 6px 6px;
+      float:right;
+      margin-right:50px;
+      margin-top:10px;
+      transform: rotate(-45deg) ;
+      
+     }
+     #menu-novo:checked ~ #seta-novo{
+     -webkit-transform: rotate(-90deg) ;
+     transform: rotate(-135deg) ;
+     }
+     #menu-formula:checked ~ #seta-novo{
+     -webkit-transform: rotate(-90deg) ;
+     transform: rotate(-135deg) ;
+     }
+     #menu-estoque:checked ~ #seta-novo{
+     -webkit-transform: rotate(-90deg) ;
+     transform: rotate(-135deg) ;
+     }
+     #menu img{
+         margin: 15px 0 0 60px;
+         float: left;
+     }
+     ul li a{
+text-decoration:none;
+color:#fff;
+margin:20px 0;
+float:left;
+}
+ul li #menu-2, #menu-1 a{
+   margin:0;
+   float:none;  
+}
+@media print{
+    .no-print{
+        display: none;
+    }
+}

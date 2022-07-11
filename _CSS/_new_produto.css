@@ -1,0 +1,47 @@
+.campo-input{
+    height: 45px;
+    width: 90%;
+     
+}
+.bt{
+    width: 150px;
+    height: 35px;
+    background-color: #194574;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    margin: 5px;
+}
+.form-cadastro{
+    width: 60%;
+    height: auto;
+    background-color: #fff;
+    margin: 30px auto;
+    padding: 45px;
+    border: 1px #dcdcdc solid;
+}
+
+#cadastro-produtos{
+    height: auto;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px #dcdcdc solid;
+    
+}
+#cadastro-produtos th h2{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#cadastro-produtos td{
+    height: 50px;
+    width: 95%;
+    text-align: center;
+    
+}
+#cadastro-produtos th{
+    text-align: left;
+    text-indent: 50px;
+    height: 25px;
+}

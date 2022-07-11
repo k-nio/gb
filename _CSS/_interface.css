@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+#conteiner-principal{
+     height: 100vh;
+     width: 100%;  
+    
+}
+header{
+    height: 75px;
+    width: 100%;
+    text-align: center;
+    background-color: #003333;
+}
+header h1{
+    line-height: 75px;
+    vertical-align: middle;
+    color: #fff;
+        
+}
+.display-content{
+    height: auto;
+    min-height: 600px;
+    width: 100%;
+    position: absolute;
+    top:77px;
+    background-image: url('../_imagens/back2.png');
+    z-index: 1;
+    
+    
+}
+  .folha{
+        height: 598px;        
+        width: 100%;
+        overflow: scroll;
+        
+    }
+@media print{
+    .no-print{
+        display: none;
+    }
+      .folha{
+        
+        overflow: visible;
+        
+    }
+}

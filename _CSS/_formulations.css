@@ -1,0 +1,81 @@
+#formulations-mostrar{
+ width: 80%;
+ height: auto;
+ padding: 25px;
+ margin: 20px auto;
+ background-color: #fff;
+ border: 1px #dcdcdc solid;
+}
+#table{
+    width: 100%;
+    height: auto;
+    border: 1px #dcdcdc solid;
+    padding: 20px;
+    border-collapse: collapse;    
+}
+#formulations-mostrar table td{
+    height: 35px;
+    text-align: center;
+   border: 1px #003333 solid;
+}
+#formulations-mostrar table th{
+    height: 45px;
+    text-align: left;
+    padding: 10px;
+     border: 1px #003333 solid;
+}
+#formulations-mostrar table th h2{
+    width: 100%;
+    text-align: center;
+    padding: 5px 0 25px 0;
+}
+.campo-input{
+    height: 45px;
+    width: 100%;
+    text-align: center;
+}
+.bt{
+    width: 150px;
+    height: 35px;
+    background-color: #194574;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    margin: 15px;
+}
+
+#formulations-produto{
+ width: 600px;
+ height: auto;
+ padding: 25px;
+ margin: 20px auto;
+ background-color: #fff;
+ border: 1px #dcdcdc solid;
+}
+#formulations-produto table{
+    width: 100%;
+    height: auto;
+    border: 1px #dcdcdc solid;
+    padding: 20px;
+}
+#formulations-produto table td{
+    height: 45px;
+    text-align: center;
+}
+#formulations-produto table th{
+    height: 35px;
+    text-align: left;
+}
+#formulations-produto table th h2{
+    width: 100%;
+    text-align: center;
+    padding: 5px 0 25px 0;
+}
+.fx{
+    font-size: 50px;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    color: red;
+    font-weight: 600;
+}

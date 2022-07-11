@@ -1,0 +1,27 @@
+.form-cadastro{
+    width: 80%;
+    height: auto;
+    padding: 30px;
+    margin: 30px auto;
+    background-color: #fff;
+}
+#table-composition{
+    width: 100%;
+    height: auto;
+    border: 1px #dcdcdc solid;
+    border-collapse: collapse;
+}
+#table-composition th{
+    border: 1px #dcdcdc solid;
+    height: 45px;
+}
+#table-composition td{
+    border: 1px #dcdcdc solid;
+    height: 35px;
+    text-align: center;
+}
+.campo-input{
+    height: 35px;
+    width: 100%;
+    text-align: center;
+}
