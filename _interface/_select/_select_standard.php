@@ -12,39 +12,39 @@ $id = 2;
                 <h1>Formula Padrão</h1> 
                 <h2>Informações Gerais</h2> 
                 <?php
-                include './_header.php';
+                include './_standard/_header.php';
                 ?>
             </td>
         </tr>
         <tr>
             <td>
                 <h2>Composição</h2>
-                <table>
+                
                 <?php
-                include './_composition.php';
+                include './_standard/_composition.php';
                 ?>
-                </table>
+                
             </td>
             
         </tr>
         <tr>
             <td><h2>Procedimento</h2>
             <?php
-                include './_procedimento.php';
+                include './_standard/_procedimento.php';
                 ?>
             </td>
         </tr>
         <tr>
             <td>Especificações do produto
             <?php
-                include './_especification.php';
+                include './_standard/_especification.php';
                 ?>
             </td>
         </tr>
         <tr>
             <td>Recomendções
             <?php
-                include './_caution.php';
+                include './_standard/_caution.php';
                 ?>
             </td>
         </tr>

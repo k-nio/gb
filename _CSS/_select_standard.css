@@ -3,9 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-.folha{
+.folhas{
     width: 90%;
     height: auto;
+    margin: 20px auto;
 }
 .margin{
     width: 90%;
@@ -13,8 +14,50 @@
     border: 1px #003333 solid;
     border-collapse: collapse;
 }
+.margin td h1{
+    
+    margin: 5px 0 10px 0;
+    
+    line-height: 50px;
+    
+}
+.margin td{
+    width: 100%;
+    border: 1px #194574 solid;
+    height: auto;
+    vertical-align: top;
+}
+.margin td h1,h2{
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    background-color: #194574;
+    color: #fff;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+.margin td table{
+    width: 100%;
+    height: auto;
+    border: #dcdcdc solid 1px;
+    border-collapse: collapse;
+    
+}
+.margin td table td{
+   border: #dcdcdc solid 1px;
+   height: 35px;
+   width: auto;
+   text-align: center;
+}
+.margin td table th{
+   border: #dcdcdc solid 1px;
+   height: 45px;
+   width: auto;
+   
+}
 @media print{
-    .folha{
+    .folhas{
     width: 210mm;
     height: 297mm;
     
