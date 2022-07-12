@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.folha{
+    width: 90%;
+    height: auto;
+}
+.margin{
+    width: 90%;
+    height: auto;
+    border: 1px #003333 solid;
+    border-collapse: collapse;
+}
+@media print{
+    .folha{
+    width: 210mm;
+    height: 297mm;
+    
+    }
+    .margin{
+        width: 200mm;
+        height: 287mm;
+        margin: 5mm;
+    }
+}
