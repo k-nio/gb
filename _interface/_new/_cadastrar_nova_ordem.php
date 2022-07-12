@@ -1,6 +1,20 @@
+<?php
+$cadastrar_ord = filter_input(INPUT_POST,'nova_ord');
+if($cadastrar_ord){
+ $produto = filter_input(INPUT_POST,'id');
+ $quantidade = filter_input(INPUT_POST,'quantidade');
+ $tanque = filter_input(INPUT_POST,'tanque');
+ $solicitante = filter_input(INPUT_POST,'solicitante');
+ $lote = filter_input(INPUT_POST,'lote');
+ $data = date('Y-m-d');
+    
+ $salvar = $con->salvar('ordem_producao','`id_ordem`, `data`, `id_produto`, `lote`, `quantidade`, `tanque`, `id_funcionario`, `situacao`',"null,'$data','$produto','$lote','$quantidade','$tanque','$solicitante','Emitida'");
+ 
+}
+?>
 <title>Cadastrar Ordem de produção</title>
 <link rel="stylesheet" type="text/css" href="./_CSS/_new_cadastro_orderm.css"/>
-<form class="form-cadastro" action="?menu-new=4" method="post">
+<form class="form-cadastro" action="?menu-new=1" method="post">
         
 <table id="new-table">
     <tr>
@@ -18,7 +32,7 @@
       While($dados = mysqli_fetch_array($result))  {
           $produtos = $dados['produto'];
           $versao = $dados['versao'];
-          $id = $dados['id'];
+          $id = $dados['id_produto'];
      
       ?>
                 
@@ -71,19 +85,19 @@
             SOLICITANTE:
         <select name="solicitante" class="campo-input""> 
                 
-                <option value="ADMINISTRAÇÃO">SOLICITADO POR:</option>
-                <option value="ADEMILTON">ADEMILTON</option>
-                <option value="BRENDO">BRENDO</option>
-                <option value="BRUNO">BRUNO</option>
-                <option value="CARLOS">CARLOS</option>
-                <option value="EMERSON">EMERSON</option>
-                <option value="THAILAN">THAILAN</option>
+                <option value="2">SOLICITADO POR:</option>
+                <option value="3">ADEMILTON</option>
+                <option value="7">BRENDO</option>
+                <option value="1">BRUNO</option>
+                <option value="6">CARLOS</option>
+                <option value="8">EMERSON</option>
+                <option value="10">THAILAN</option>
+                <option value="9">JUNIOR</option>
                 
             </select> 
         </td>
         <td>
-            <input type="hidden" name="status" value="EMITIDA" class="btn-ord">
-            
+                  
             <input type="submit" name="nova_ord" value="ENVIAR" class="bt">
             <input type="reset" name="" value="RESET" class="bt">
         </td>

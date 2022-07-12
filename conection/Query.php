@@ -14,7 +14,7 @@ class Query {
     }
     public function salvar($table,$param, $param_in) {
 
-$salvar = $this->pesquisar("INSERT INTO `$table`($param) VALUES ($param_in)");
+$salvar = $this->pesquisar("INSERT INTO $table($param) VALUES ($param_in)");
 
 return $salvar;
         
