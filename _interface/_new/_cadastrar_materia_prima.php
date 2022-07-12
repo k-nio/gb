@@ -1,7 +1,9 @@
 <title>Cadastro de Matérias primas</title>
+<link rel="stylesheet" href="./_CSS/_new_materia.css"/>
 
-<form class="form-cadastro" action="" method="post">
-    <table>
+<form id="form-cadastro" action="" method="post">
+    
+    <table id="cadastro-mp">
         <tr>
             <th><h2>Cadastrar Matéria prima</h2></th>
         </tr>

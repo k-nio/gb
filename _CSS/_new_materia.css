@@ -1,6 +1,50 @@
-.form-cadastro{
-    width: 60%;
-    height: auto;
-    padding: 30px;
-    margin: 30px auto;
-}
+
+
+ #form-cadastro{
+        padding: 30px;
+        width: 590px;
+        height: auto;
+        background-color: #fff;
+        margin: 20px auto;
+        border: 2px #dcdcdc solid;
+    }
+    #cadastro-mp{
+        border-collapse: collapse;
+        width: 500px;
+        height: auto;
+        border: 1px #dcdcdc solid;
+        margin: auto;
+        padding: 10px 5px 50px 5px;
+    }
+       #cadastro-mp th h2{
+            padding: 30px 0 25px 0;
+            width: 100%;
+            text-align: center;
+        }
+        #cadastro-mp th{
+            text-align: left;
+            height: 35px;
+            text-indent: 12px;
+        }
+    #cadastro-mp td{
+        height: 45px;
+    }
+    .campo-input{
+    height: 45px;
+    width: 96%;
+    text-indent: 20px;
+    margin:5px 2%;
+    }
+    #text-cliente{
+        width: 100%;
+        height: 80px;
+        
+    }
+    .bt{
+        height: 45px;
+        width: 96%;
+        background-color: #194574;
+        color: #fff;
+        border: none;
+        margin: 10px 2%;
+    }
