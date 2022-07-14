@@ -1,0 +1,156 @@
+*{
+        font-family: monospace;
+        
+        box-sizing: border-box;
+    }
+    /*conteiner */
+    #display-ord{
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: scroll;
+    }
+    /* folhas */
+      .folhas{
+        width: 297mm;
+    height: 209.3mm;
+    background-color: #fff;
+    margin: 55px auto -30px;
+    border: 1px #696969 solid;
+    overflow: hidden;
+    }
+    /* margin interna das folhas */
+    .margin{
+        width: 287mm;
+        height: 200mm;
+        margin: 5mm;
+        border: 1px #696969 solid;
+        overflow: hidden;
+        border-collapse: collapse;
+    }
+    .margin th{
+        border: 1px #696969 solid;
+    }
+    .margin td{
+        border: 1px #696969 solid;
+        height: auto;
+        
+    }
+    /* cabeçalho da ordem de produção*/
+      #header-ord{
+        height: 20mm;
+    }
+    #logo{
+       height: 60px;
+    width: 100px;
+        float: left;
+        margin: 5px 0 0 50px;
+    }
+   #header-ord pre{
+        float: left;
+        font-size: 13px;
+        color: #696969;
+    }
+     .margin  ul{
+        width: 100%;
+        
+    }
+    .margin  ul li{
+    display: inline-block;
+    margin: 5px 0 0 8px;
+    width: 90mm;
+    height: 8mm;
+    vertical-align: middle;    
+    line-height: 8mm;
+        
+    }
+    #composition-ord{
+        width: 100%;
+        height: auto;
+        border-collapse: collapse;
+        font-size: 16px;
+        border: none;
+    }
+    
+    #composition-ord td{
+        height: 7mm;
+        text-align: center;
+    }
+    .margin  td h3{
+    height: 8mm;
+    text-align: center;
+    padding: 5px 0 10px;
+    border-bottom: 1px #000 solid;
+   
+    margin-bottom: 0px;
+    width: calc(100% + 4mm);
+    }
+    #title-ord{
+        height: 8mm;
+    }
+  #composition-ord th{
+       height:  8mm;
+       background-color: #194574;
+       color: #fff;
+    }
+  #composition-ord tr:nth-child(even) {
+	background-color:#e8e3e3;
+	}
+        #procedimento-ord h3{
+             margin-left: -2mm;
+        }
+        #procedimento-ord{
+            height: 100%; 
+            width: calc(100% - 84mm); 
+            float: left; 
+            padding: 0 2mm; 
+            font-size: 12px;
+            border: 1px #000 solid;
+        }
+        #resp-ord{
+            border-collapse: collapse;
+            height: 100%;
+            width: 100%;
+            border: 1px #000 solid;
+        }
+        #resp-ord td{
+            text-indent: 15px;
+        }
+        
+        .control-1 td{
+            height: 6mm;
+            border: 1px #000 solid;
+            text-indent: 5px;
+        }
+        .control-1 th{
+            height: 10mm;
+           
+        }
+        .control-1{
+            border-collapse: collapse;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+       .print:last-child {
+       page-break-after: avoid;
+    }
+    @media print{
+        #display-ord{
+            top:-75px;
+            overflow: visible;
+        }
+        .folhas{
+        
+    margin: 0 auto;
+        }
+        #composition-ord th{
+    
+       background-color: #fff;
+       color: #000;
+    }
+    
+    }

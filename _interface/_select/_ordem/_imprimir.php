@@ -1,17 +1,18 @@
 <?php
-
+$print = filter_input(INPUT_POST,'id');
+if($print){
 $id = filter_input(INPUT_POST, 'id');
 
- $results = $con->pesquisar("SELECT * FROM _ord where num = '$id' ");
+ $results = $con->pesquisar("SELECT * FROM ordem_producao o join _produto p on p.id_produto = o.id_produto where id_ordem = '$id' ");
        while ($dado = mysqli_fetch_array($results)){
            $produto = $dado['produto'];
            $id_produto = $dado['id_produto'];
            $versao= $dado['versao'];
            $data = $dado['data'];
            $lote = $dado['lote'];
-           $ord = $dado['num'];
+           $ord = $dado['id_ordem'];
            $tanque = $dado['tanque'];
-           $solicitante = $dado['solicitante'];
+          
            $status = $dado['situacao'];
            $quantidade = $dado['quantidade'];
            $timestamp = strtotime($data); 
@@ -19,160 +20,12 @@ $id = filter_input(INPUT_POST, 'id');
 
        }
 ?>
-<style>
-   *{
-        font-family: monospace;
-        
-        box-sizing: border-box;
-    }
-    #display-ord{
-        width: 100%;
-        height: auto;
-        min-height: 700px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: rgba(0,0,0,.9);
-        z-index: 25;
-    }
-    .folha{
-        width: 297mm;
-        height: 209.8mm;
-        background-color: #fff;
-        margin: 0 auto 0;
-        border: 1px #696969 solid;
-        overflow: hidden;
-    }
-    .margin-folha{
-        width: 287mm;
-        height: 200mm;
-        margin: 5mm;
-        border: 1px #696969 solid;
-        overflow: hidden;
-        border-collapse: collapse;
-    }
-    .margin-folha th{
-        border: 1px #696969 solid;
-    }
-    .margin-folha td{
-        border: 1px #696969 solid;
-        height: auto;
-        
-    }
-    #header-ord{
-        height: 20mm;
-    }
-    #logo{
-       height: 60px;
-    width: 100px;
-        float: left;
-        margin: 5px 0 0 50px;
-    }
-   #header-ord pre{
-        float: left;
-        font-size: 13px;
-        color: #696969;
-    }
-    .margin-folha ul{
-        width: 100%;
-        
-    }
-    .margin-folha ul li{
-    display: inline-block;
-    margin: 5px 0 0 8px;
-    width: 90mm;
-    height: 8mm;
-    vertical-align: middle;    
-    line-height: 8mm;
-        
-    }
-    #composition-ord{
-        width: 100%;
-        height: auto;
-        border-collapse: collapse;
-        font-size: 16px;
-        border: none;
-    }
-    
-    #composition-ord td{
-        height: 7mm;
-        text-align: center;
-    }
-    .margin-folha td h3{
-    height: 8mm;
-    text-align: center;
-    padding: 5px 0 10px;
-    border-bottom: 1px #000 solid;
-   
-    margin-bottom: 0px;
-    width: calc(100% + 4mm);
-    }
-    #title-ord{
-        height: 8mm;
-    }
-  #composition-ord th{
-       height:  8mm;
-       background-color: #194574;
-       color: #fff;
-    }
-  #composition-ord tr:nth-child(even) {
-	background-color:#e8e3e3;
-	}
-        #procedimento-ord h3{
-             margin-left: -2mm;
-        }
-        #procedimento-ord{
-            height: 100%; 
-            width: calc(100% - 84mm); 
-            float: left; 
-            padding: 0 2mm; 
-            font-size: 12px;
-            border: 1px #000 solid;
-        }
-        #resp-ord{
-            border-collapse: collapse;
-            height: 100%;
-            width: 100%;
-            border: 1px #000 solid;
-        }
-        #resp-ord td{
-            text-indent: 15px;
-        }
-        
-        .control-1 td{
-            height: 6mm;
-            border: 1px #000 solid;
-            text-indent: 5px;
-        }
-        .control-1 th{
-            height: 10mm;
-           
-        }
-        .control-1{
-            border-collapse: collapse;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-       .print:last-child {
-       page-break-after: avoid;
-    }
 
-    @media print{
-        .no-print{
-            display: none;
-        }
-        #composition-ord th{
-    
-       background-color: #fff;
-       color: #000;
-    }
-    }
-    
-</style>
-<div id="display-ord"> <a class="no-print" href="">Fechar</a>
-    <div class="folha">
-        <table class="margin-folha">
+<link rel="stylesheet" type="text/css" href="./_CSS/_print_ordem.css"/>
+<div id="display-ord">
+    <a class="no-print" id="fx" href="">&times;</a>
+    <div class="folhas">
+        <table class="margin">
             <tr>
                 <th id="header-ord">
                     <img id="logo" src="./_imagens/IMBA Química - 350pxb.png" alt="logo"/>
@@ -217,9 +70,8 @@ $id = filter_input(INPUT_POST, 'id');
      <?php
      
      
-     $result = $con->pesquisar("SELECT f.quantidade,m.materia_prima, m.fornecedor,m.lote,f.procedimento FROM `_formula` f
-JOIN _mp m on f.codigo = m.codigo
-WHERE f.id_produto = '$id_produto' and m.status = 'EM USO' ");
+     $result = $con->pesquisar("SELECT f.quantidade,m.materia_prima, e.fornecedor,e.lote,f.procedimento FROM `_formula` f
+JOIN materia_prima m on f.id_materia_prima = m.id_materia_prima JOIN estoque_materia_prima e on e.id_materia_prima = m.id_materia_prima WHERE f.id_produto = '$id_produto' and e.status = 'EM USO'");
      
      while ($dados = mysqli_fetch_array($result)){
             $quantidade_formula = $dados['quantidade'];
@@ -272,8 +124,8 @@ WHERE f.id_produto = '$id_produto' and m.status = 'EM USO' ");
             </tr>
         </table>
     </div>
-    <div class="folha">
-        <table class="margin-folha">
+    <div class="folhas">
+        <table class="margin">
              <tr>
                 <td style="width:34%;">
                     <table id="control-1" class="control-1" >
@@ -309,9 +161,9 @@ WHERE f.id_produto = '$id_produto' and m.status = 'EM USO' ");
                  <table id="control-3" class="control-1">
                          <tr><th>ANALISES FISICO QUIMICAS</th></tr>
                          <?php
-                         $result_ = $con->pesquisar("SELECT `propriedade` FROM `produtos_especifications` WHERE id_produto ='$id_produto'");
+                         $result_ = $con->pesquisar("SELECT parametro FROM `especificacao` WHERE id_produto ='1'");
                          while ($dado_ = mysqli_fetch_array($result_)){
-                             $propriedade = $dado_['propriedade'];
+                             $propriedade = $dado_['parametro'];
                          ?>
                           <tr><td> <?php
                                   echo $propriedade.':';
@@ -424,4 +276,4 @@ WHERE f.id_produto = '$id_produto' and m.status = 'EM USO' ");
             </tr>
         </table>
     </div>
-</div> 
+</div> <?php }

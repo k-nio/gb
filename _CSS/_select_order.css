@@ -1,0 +1,63 @@
+form{
+        width: calc(100% - 500px);
+        height: auto;
+        margin: 20px 25px 0 250px;
+        border: 1px #dcdcdc solid;
+        background-color: #fff;
+        padding: 15px;
+    
+} 
+#tb-search{
+        width: 100%;
+        height: 120px;
+       
+        border: 1px #dcdcdc solid;
+        
+    }
+   
+ #tb-search   .campo-input{
+        height: 35px;
+        width: 250px;
+        text-align: center;
+    }
+    #tb-search .bt{
+        height: 35px;
+        width: 120px;
+        border: none;
+        background-color: #4284a5;
+        color:#fff;
+    }
+    #display-ord{
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        position: absolute;
+    }
+    #fx{
+    color: red;
+    font-size: 45px;
+    margin-right: 20px;
+    float: right;
+}
+#id-ord, #id-rel{
+    display: none;
+}
+#ord-display{
+    width: calc(100% - 60px);
+    margin: 50px 30px;
+    border-collapse: collapse;
+}
+#ord-display th{
+    background-color: #194574;
+    color: #fff;
+    height: 40px;
+        
+}
+#ord-display td{
+    border: 1px #4284a5 solid;
+    height: 30px;
+    text-align: center;
+}
+tr:nth-last-child(even) td{
+  background-color: #dcdcdc;  
+}
