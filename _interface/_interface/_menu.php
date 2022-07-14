@@ -31,6 +31,7 @@
                <input type="checkbox" id="menu-consulta"><div id="seta-novo"></div>
             <ul id="menu-4">
                 <li><img src="./_imagens/cabinet.png" width="28" height="28" alt="alt"/><a href="./_show.php?menu-consulta=1">Consultar ordem de produção</a></li>
+                <li><img src="./_imagens/cabinet.png" width="28" height="28" alt="alt"/><a href="./_show.php?menu-consulta=2">Consultar Produto</a></li>
             </ul>
                
         </li>

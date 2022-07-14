@@ -27,8 +27,12 @@ return $salvar;
         $excluir = $this->pesquisar("DELETE FROM `$table` WHERE $param = '$valor'");
         return $excluir;
     }
-    public function consulta($table, $param, $valor) {
-        $result = $this->pesquisar("SELECT * FROM $table where $param like '%$valor%' order by $param asc");
+    public function consultaTudo($table, $param, $valor) {
+        $result = $this->pesquisar("SELECT * FROM $table where $param = $valor");
+        return $result;
+    }
+    public function consulta($registros, $table, $param, $valor, $complemento) {
+        $result = $this->pesquisar("SELECT $registros FROM $table where $param = $valor $complemento");
         return $result;
     }
    }

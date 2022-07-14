@@ -7,6 +7,7 @@
     width: 90%;
     height: auto;
     margin: 20px auto;
+    background-color: yellow;
 }
 .margin{
     width: 90%;
@@ -37,24 +38,63 @@
     vertical-align: middle;
 }
 
-.margin td table{
-    width: 100%;
+#table-composition{
+    width: 80%;
     height: auto;
     border: #dcdcdc solid 1px;
     border-collapse: collapse;
+    margin: 10px auto;
     
 }
-.margin td table td{
+#table-composition td{
    border: #dcdcdc solid 1px;
    height: 35px;
    width: auto;
    text-align: center;
 }
-.margin td table th{
+#table-composition th{
    border: #dcdcdc solid 1px;
    height: 45px;
    width: auto;
    
+}
+
+#table-header{
+     width: 100%;
+    height: auto;
+    border: #dcdcdc solid 1px;
+    border-collapse: collapse;
+    
+    
+}
+#table-header tr{
+    display: flex;
+    vertical-align: middle;
+    line-height: 35px;
+    
+}
+#table-header td{
+   border: #dcdcdc solid 1px;
+   height: 35px;
+   width: auto;
+   text-indent: 20px;
+   
+   
+   
+}
+#table-header td h4{
+   width:230px;
+   text-align: right;
+   padding-right: 5px;
+   
+   
+   
+}
+.procedimento-text{
+    width: 99%;
+    margin: 5px 0 0 20px;
+    float: left;
+    
 }
 @media print{
     .folhas{
