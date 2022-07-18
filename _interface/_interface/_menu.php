@@ -50,7 +50,9 @@
                <input type="checkbox" id="menu-relatorio"><div id="seta-novo"></div>
             <ul id="menu-6">
                 <li><a href="./_report.php?menu-report=1">Novo Relatório de produto</a></li>
-                <li><a href="./_report.php?menu-report=3">Consultar Relatório</a></li>
+                <li><a href="./_report.php?menu-report=2">Consultar Relatório de Produto</a></li>
+                <li><a href="./_report.php?menu-report=3">Novo Relatório de Matérias primas</a></li>
+                <li><a href="./_report.php?menu-report=4">Consultar Relatório Matéria prima</a></li>
                 
             </ul>
                
