@@ -13,6 +13,7 @@
                 <li><a href="_new.php?menu-new=2">Cadastrar produtos</a></li>
                 <li><a href="_new.php?menu-new=1">Nova ordem de produção</a></li>
                 <li><a href="_new.php?menu-new=4">Nova Matéria prima</a></li>
+                <li><a href="_new.php?menu-new=5">Nova Fornecedor</a></li>
             </ul>
            </li>
        </label>

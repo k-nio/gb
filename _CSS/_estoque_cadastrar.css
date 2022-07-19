@@ -1,0 +1,75 @@
+form{
+   width: auto; 
+   padding: 25px;
+    background-color: #fff;
+    margin: 20px auto;
+    border: 1px #dcdcdc solid;
+}
+#table_produto{
+    width: 100%;
+    border-collapse: collapse;
+    
+    
+    
+}
+#table_produto td{
+    text-align: center;
+    height: 35px;
+    border: 1px #dcdcdc solid;
+    border-top: none;
+}
+#table_produto th{
+    text-align: center;
+    height: 45px;
+    border: 1px #dcdcdc solid;
+    border-bottom: none;
+    
+}
+#table_produto th h2{
+    text-align: center;
+    padding: 10px 0 25px 0;
+    
+    
+}
+.campo-input{
+    height: 40px;
+    width: 250px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+.bt{
+    height: 40px;
+    width: 150px;
+    background-color: #194574;
+    color: #fff;
+    border: none;
+    margin: 10px;
+}
+
+/*Materias primas*/
+#table_materia{
+    width: 100%;
+    border-collapse: collapse;
+    
+    
+    
+}
+#table_materia td{
+    text-align: center;
+    height: 35px;
+    border: 1px #dcdcdc solid;
+    border-top: none;
+}
+#table_materia th{
+    text-align: center;
+    height: 45px;
+    border: 1px #dcdcdc solid;
+    border-bottom: none;
+    
+}
+#table_materia th h2{
+    text-align: center;
+    padding: 10px 0 25px 0;
+    
+    
+}

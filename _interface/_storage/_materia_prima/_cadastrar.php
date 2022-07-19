@@ -19,17 +19,21 @@ if($action){
 
 
 ?>
+<link rel="stylesheet" href="./_CSS/_estoque_cadastrar.css"/>
+
 <form method="post" action="">
-     <table>
+    <table id="table_materia">
         <tr>
-            <th colpan="2"><h2>Adicionar Matéria prima</h2></th>
+            <th colspan="4">
+                <h2>Adicionar Matéria prima</h2>
+            </th>
         </tr>
         <tr>
-            <th>  MATÉRIA PRIMA: </th>
-             </tr>
+            <th>  MATÉRIA PRIMA: </th> <th> FORNECEDOR:  </th> <th> LOTE:  </th><th> QUANTIDADE:  </th>
+        </tr>
         <tr>
             <td>
-                <select class="campo-cliente" name="mp"> 
+                <select class="campo-input" name="mp"> 
                     <?php 
                     $result = $con->pesquisar("SELECT * FROM materia_prima order by materia_prima asc");
                     while ($dados = mysqli_fetch_array($result)){
@@ -41,14 +45,10 @@ if($action){
                                  }
                     ?>
                     
-                </select>  </td>
-        </tr>
-        <tr>
-            <th> FORNECEDOR:  </th>
-             </tr>
-        <tr>
+                </select>  
+            </td>
             <td> 
-                <select class="campo-cliente" name="fc"> 
+                <select class="campo-input" name="fc"> 
                     <?php 
                     $results = $con->pesquisar("SELECT * FROM _fornecedor order by fornecedor asc");
                     while ($dados = mysqli_fetch_array($results)){
@@ -61,66 +61,43 @@ if($action){
                     ?>
                     
                 </select>
-                </td>
+                </td> 
+                <td> <input class="campo-input" type="text" name="lt" value="">  </td>
+                 <td>  <input class="campo-input" type="text" name="qt" value="">  </td>
         </tr>
+       
         <tr>
-            <th> LOTE:  </th>
+            <th> SITUAÇÃO:  </th><th> STATUS:</th><th> VALIDADE:  </th><th> FABRICAÇÃO:  </th>
              </tr>
         <tr>
-            <td> <input class="campo-cliente" type="text" name="lt" value="">  </td>
-        </tr>
-        <tr>
-            <th> SITUAÇÃO:  </th>
-             </tr>
-        <tr>
-            <td>  <select  class="campo-cliente" name="st"> 
+            <td>  <select  class="campo-input" name="st"> 
                     <option value="Estoque">EM ESTOQUE</option>
                     <option value="Em Uso">EM USO</option>
                     <option value="Bloqueado">BLOQUEADO</option>
                 </select>  
             </td>
-        </tr>
-        <tr>
-            <th> STATUS:  </th>
-             </tr>
-        <tr>
-            <td> <select class="campo-cliente" name="sit"> 
+            <td> 
+                <select class="campo-input" name="sit"> 
                     <option value="Aprovado">LIBERADO</option>
                     <option value="Quarentena">QUARENTENA</option>
                     <option value="Reprovado">BLOQUEADO</option>
                     <option value="Vencido">DEVOLUÇÃO</option>
                 </select>  
             </td>
+            <td> 
+                <input class="campo-input" type="date" name="val" value="">  
+            </td>
+            <td> 
+                <input class="campo-input" type="date" name="fab" value="">  
+            </td>
         </tr>
-       
-        <tr>
-            <th> QUANTIDADE:  </th>
-             </tr>
-        <tr>
-            <td>  <input class="campo-cliente" type="text" name="qt" value="">  </td>
-        </tr>
-        <tr>
-            <th> VALIDADE:  </th>
-             </tr>
-        <tr>
-            <td> <input class="campo-cliente" type="date" name="val" value="">  </td>
-        </tr>
-        <tr>
-            <th> FABRICAÇÃO:  </th>
-             </tr>
-        <tr>
-            <td> <input class="campo-cliente" type="date" name="fab" value="">  </td>
-        </tr>
-       
+        
         <tr>
             
-            <td>
-                <input type="reset" class="bt-cliente" name="" value="LIMPAR"> 
-            </td>
-             </tr>
-        <tr>
-            <td>
-                 <input type="submit" class="bt-cliente" name="action" value="CADASTRAR">
+            <td colspan="4">
+                <input type="reset" class="bt" name="" value="LIMPAR"> 
+            
+                 <input type="submit" class="bt" name="action" value="CADASTRAR">
             </td>
         </tr>
     </table>

@@ -23,27 +23,27 @@ if($menu_storage){
           
            
            break;
-       case 3: include './_interface/_storage/_produto/_cadastrar.php'; break;
+           
+       case 3:
+           
+           include './_interface/_storage/_produto/_cadastrar.php'; 
+           break;
+       
        case 4:
+           
            $pesquisa = filter_input(INPUT_POST,'pesquisar');
-           $search = filter_input(INPUT_POST,'search');
+           $id_produto = filter_input(INPUT_POST,'id_produto');
            $situacao = filter_input(INPUT_POST,'situacao');
            
            if($pesquisa){
                include './_interface/_storage/_produto/_consultar.php';
            } else {
               include './_interface/_storage/_produto/_pesquisar.php';
-}
+              }
           
-           
-           
-           
-           
-           
-           include './_interface/_storage/_produto/_consultar.php'; break;
-            }
 
     }
+}
         ?>
         
         
