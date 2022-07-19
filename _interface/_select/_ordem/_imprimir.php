@@ -70,8 +70,8 @@ $id = filter_input(INPUT_POST, 'id');
      <?php
      
      
-     $result = $con->pesquisar("SELECT f.quantidade,m.materia_prima, e.fornecedor,e.lote,f.procedimento FROM `_formula` f
-JOIN materia_prima m on f.id_materia_prima = m.id_materia_prima JOIN estoque_materia_prima e on e.id_materia_prima = m.id_materia_prima WHERE f.id_produto = '$id_produto' and e.status = 'EM USO'");
+     $result = $con->pesquisar("SELECT f.quantidade,m.materia_prima, i.fornecedor,e.lote,f.procedimento FROM `_formula` f
+JOIN materia_prima m on f.id_materia_prima = m.id_materia_prima JOIN estoque_materia_prima e on e.id_materia_prima = m.id_materia_prima join _fornecedor i on i.id_fornecedor = e.id_fornecedor WHERE f.id_produto = '$id_produto' and e.status = 'EM USO'");
      
      while ($dados = mysqli_fetch_array($result)){
             $quantidade_formula = $dados['quantidade'];
@@ -161,7 +161,7 @@ JOIN materia_prima m on f.id_materia_prima = m.id_materia_prima JOIN estoque_mat
                  <table id="control-3" class="control-1">
                          <tr><th>ANALISES FISICO QUIMICAS</th></tr>
                          <?php
-                         $result_ = $con->pesquisar("SELECT parametro FROM `especificacao` WHERE id_produto ='1'");
+                         $result_ = $con->pesquisar("SELECT parametro FROM `especificacao` WHERE id_produto ='$id_produto'");
                          while ($dado_ = mysqli_fetch_array($result_)){
                              $propriedade = $dado_['parametro'];
                          ?>

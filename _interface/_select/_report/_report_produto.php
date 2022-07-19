@@ -1,4 +1,5 @@
 <title>Relatório de Produto Acabado</title>
+<link rel="stylesheet" href="./_CSS/_report.css"/>
  <?php
       $ids = filter_input(INPUT_POST,'id');
       if ($ids){
@@ -24,8 +25,8 @@
     }
 
 ?>
-<title>Relatório produto</title>
-<table>
+    <div id="folhas">
+    <table id="relatorio-title">
                 <tr>
                     <th colspan="6"><h2>Relatório de Produto</h2></th>
                 </tr>
@@ -41,7 +42,7 @@
             <th>Ordem</th><td> <?php echo $ord; ?></td>
            
 </table> 
-<table>
+        <table id="relatorio-especifications">
     <tr>
         <th>Propriedade</th>
         <th>Unidade</th>
@@ -70,6 +71,7 @@ while ($dados = mysqli_fetch_array($consulta)){
         }
 ?>
 </table>
+    </div>
 </section>
 <?php
       }

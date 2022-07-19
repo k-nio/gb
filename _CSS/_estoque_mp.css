@@ -1,0 +1,50 @@
+#estoque-mp{
+    width: 100%;
+    height: auto;
+    margin:70px auto;
+}
+#estoque-mp td{
+    border: 1px #194574 solid;
+    height: 35px;
+    text-align: center;
+}
+#estoque-mp th{
+    border: 1px #194574 solid;
+    height: 40px;
+    color: #fff;
+    background-color: #194574;
+    border: none;
+}
+#fx{
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: red;
+    font-size: 55px;
+    font-weight: 600;
+}
+.campo-input{
+    height: 40px;
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+}
+.bt{
+    height: 40px;
+    width: 150px;
+    background-color: #194574;
+    color: #fff;
+    border: none;
+    margin: 10px;
+}
+#search{
+    border: 1px #dcdcdc solid;
+    height: 100px;
+    background-color: #fff;
+    margin: 30px auto;
+    
+}
+#search th{
+  text-align: left;
+  text-indent: 10px;  
+}

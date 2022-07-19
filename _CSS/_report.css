@@ -1,0 +1,22 @@
+#folhas{
+    width: 80%;
+    height: 600px;
+    overflow: scroll;
+}
+#relatorio-title{
+    border: 1px #000 solid;
+    border-collapse: collapse;   
+}
+#relatorio-especifications{
+    border: 1px #000 solid;
+    border-collapse: collapse;   
+}
+@media print{
+#folhas{
+   margin: 0;
+   padding: 0;
+    width: 210mm;
+    height: 295mm;
+    overflow: visible;
+}
+}

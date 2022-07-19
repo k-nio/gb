@@ -33,6 +33,7 @@ if($menu_reporter){
        case 6:
            include './_interface/_new/_report/_processamento.php'; 
         include './_interface/_select/_report_select.php'; 
+        break;
     }
 
     }

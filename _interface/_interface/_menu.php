@@ -40,7 +40,9 @@
                <input type="checkbox" id="menu-estoque"><div id="seta-novo"></div>
             <ul id="menu-5">
                 <li><img src="./_imagens/registro.png" width="28" height="28" alt="alt"/> <a href="./_storage.php?menu-storage=1">Adicionar Matéria prima</a></li>
-                <li><img src="./_imagens/cabinet.png" width="28" height="28" alt="alt"/><a href="./_storage.php?menu-storage=4">Consultar Matéria prima</a></li>
+                <li><img src="./_imagens/cabinet.png" width="28" height="28" alt="alt"/><a href="./_storage.php?menu-storage=2">Consultar Matéria prima</a></li>
+                <li><img src="./_imagens/registro.png" width="28" height="28" alt="alt"/> <a href="./_storage.php?menu-storage=3">Adicionar produto</a></li>
+                <li><img src="./_imagens/cabinet.png" width="28" height="28" alt="alt"/><a href="./_storage.php?menu-storage=4">Consultar produto</a></li>
                 
             </ul>
                
