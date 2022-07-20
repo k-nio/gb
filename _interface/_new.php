@@ -9,7 +9,7 @@
              case 2: include './_interface/_new/_cadastrar_produto.php'; break;
              case 3: include './_interface/_new/_cadastrar_cliente.php'; break;
              case 4: include './_interface/_new/_cadastrar_materia_prima.php'; break;
-             case 4: include './_interface/_new/_cadastrar_fornecedor.php'; break;
+             case 5: include './_interface/_new/_cadastrar_fornecedor.php'; break;
          }
      }  
      

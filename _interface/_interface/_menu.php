@@ -64,7 +64,8 @@
         <label for="menu-pedidos"> <li><img src="./_imagens/formula w.png" width="28" height="28" alt="alt"/><a href=""> Pedidos</a>
                <input type="checkbox" id="menu-pedidos"><div id="seta-novo"></div>
             <ul id="menu-7">
-                <li><a href="">NOVA FORMULA</a></li>
+                <li><a href="./_pedidos.php?menu-pedido=1">Novo Pedido</a></li>
+                <li><a href="./_pedidos.php?menu-pedido=2">Consultar Pedido</a></li>
                 
             </ul>
                
