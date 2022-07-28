@@ -1,0 +1,146 @@
+#display-pedido{
+    width: 100%;
+    height: 950px;
+    position: absolute;
+    z-index: 5;
+    background-color: rgba(0,0,0,.9);
+    top: 0;
+    
+}
+#folhas{
+    width: calc(100%- 60px);
+    margin: 80px 30px;
+    height: auto;
+    border: 1px #000 solid;
+    background-color: #fff;
+}
+    #header-pedido{
+        width: calc(100% - 60px);
+        border: 1px #dcdcdc solid;
+        text-align: center;
+        margin: 20px 20px;
+        color: #696969;
+    }
+    #text-header{
+        background-color: #fff;
+        margin-top: 15px;
+    } 
+    #dados-field p label{
+        color: red;
+    }
+    #logo{
+        height: 65px;
+        margin: 25px 0 0 50px;
+        float: left;     }
+form{
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+#folhas fieldset p{
+         margin-left: 8px;
+         float: left;
+    }
+    #folhas fieldset{
+        
+        float: left;
+        height: 130px;
+        
+    }
+    #dados-field{
+        width: 305mm;
+        margin: 5px 1px 5px 20px;
+    }
+    #pedido-field{
+        width: 70mm;
+        margin: 5px 0;
+    }
+#folhas h2{
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+#tabela-produtos{
+    width: 100%;
+    border: 1px #003333 solid;
+    border-collapse: collapse;
+}
+#tabela-produtos th{
+height: 45px;
+ border: 1px #003333 solid;
+}
+#tabela-produtos td{
+    height: 35px;
+    border: 1px #003333 solid;
+    text-align: center;
+    
+}
+ #tabela fieldset p{
+         background-color: #fff;
+         float: left;
+         width: 100mm;
+         
+    }
+.campo-input{
+    height: 38px;
+    width: 100%;
+    text-align: center;
+}
+.bt{
+    background-color: #194574;
+    color: #fff;
+    border: none;
+    width: 120px;
+    height: 35px;
+}
+#folha{
+    overflow: scroll;
+}
+ #fx{
+    color: red;
+    font-size: 45px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-right: 55px;
+    float: right;
+}
+@media print{
+   .folha{
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+        background-color: #fff;
+    }
+    .display-content {
+    top:0;
+    
+    }  #folhas{
+        width: 210mm;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        border: none;
+    }
+    .no-print{
+        display: none;
+    }
+    #dados-field{
+        width: 129mm;
+        
+    }
+     #header-pedido{
+        width: 204mm;
+        border: 1px #dcdcdc solid;
+        text-align: center;
+        margin: auto;
+        color: #696969;
+    }
+    #logo{
+        height: 65px;
+        margin: 15px 0 0 0;
+        float: left;
+    }
+    
+}
