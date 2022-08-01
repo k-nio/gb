@@ -1,5 +1,6 @@
 <?php
 include './conection/_conecta.php';
+include './conection/_login_autentication.php';
 
  if(!isset($_SESSION)){ 
         session_start(); 

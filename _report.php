@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+include './conection/_conecta.php';
+include './conection/_login_autentication.php';
+?><!DOCTYPE html>
 
 <html>
     <head>
@@ -11,7 +14,7 @@
     <body>
         <section id="conteiner-principal">
       <?php
-      include './conection/_conecta.php';
+      
       include './_interface/_interface/_header.php';
       include './_interface/_interface/_menu.php';
       include './_interface/_report.php';

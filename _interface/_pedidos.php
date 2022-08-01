@@ -21,7 +21,9 @@
                  
                  include './_interface/_pedidos/_pedido_produto.php';
                  break;
-             case 5: echo 'novo cliente'; break;
+             case 4: 
+                 include './_interface/_pedidos/_separar_pedido.php'; 
+                 break;
             
          }
      }  

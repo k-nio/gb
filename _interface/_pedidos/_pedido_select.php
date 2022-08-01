@@ -1,21 +1,18 @@
 <link rel="stylesheet" href="./_CSS/_pedido.css"/>
 <?php
-
-$selecionar = filter_input(INPUT_POST,'selecionar');
-$id_cliente = filter_input(INPUT_POST,'id_cliente');
-$id_pedido = filter_input(INPUT_POST,'id_pedido');
-$id_funcionario = 1;
-if($selecionar){
-    include './_interface/_pedidos/_processamento/_processamento_salvar_pedido.php';
-    
-}
-$adicionar = filter_input(INPUT_POST,'adicionar');
-if($adicionar){
-    include './_interface/_pedidos/_processamento/_processamento_adicionar.php';                              
-}
+ $id_cliente = filter_input(INPUT_POST, 'id_cliente');
+ $id_pedido = filter_input(INPUT_POST, 'id');
+ 
 include './_interface/_pedidos/_processamento/_consultas.php';
+
 ?>
-<a id="fx" class="no-print" href="./_pedidos.php?menu-pedido=1">&times;</a>
+<style>
+    #tb-search,#search-form{
+        display: none;
+    }
+</style>
+
+<a id="fx" class="no-print" href="">&times;</a>
 <div id="folhas">
     <div id="header-pedido">
                    <img id="logo" src="./_imagens/IMBA Química - 350pxb.png" alt="logo"/>
@@ -30,9 +27,9 @@ include './_interface/_pedidos/_processamento/_consultas.php';
 <fieldset id="dados-field">
     <legend>Dados cliente</legend>
    <p>
-    <label>Id Cliente: </label><?php echo $id; ?> <br>
+    <label>Id Cliente: </label><?php echo $id_cliente; ?> <br>
     <label>Cliente: </label><?php echo $nome; ?> <br>   
-    
+    <label>Endereço: </label><br>
     <label>Rua: </label><?php echo $rua; ?>       
     <label>N°:      </label><?php echo $numero; ?> 
     <label>Complemento: </label> <?php echo $complemento; ?><br>
@@ -86,7 +83,7 @@ while ($dados = mysqli_fetch_array($consulta)){
     <tr class="no-print">
         <td>
     <input type="hidden" name="id_cliente" value="<?php echo $id_cliente;?>">
-    <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>">
+    <input type="hidden" name="id_pedido" value="<?php echo $id;?>">
     <input type="number" class="campo-input" name="id_produto" value="">
         </td>
         <td>
@@ -140,13 +137,12 @@ while ($dados = mysqli_fetch_array($consulta)){
 
 </table>
 </form>
-    <form action="./_interface/_pedidos/_processamento/_finalizar.php" method="post">
+    <form class="no-print" action="./_interface/_pedidos/_processamento/_finalizar.php" method="post">
         
         <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>">
         
         <input  type="submit" class="bt" name="finalizar" value="Cancelar">
         <input  type="submit" class="bt" name="finalizar" value="Rascunho">
         <input  type="submit" class="bt" name="finalizar" value="Finalizar">
-        
     </form>
 </div>

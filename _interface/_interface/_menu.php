@@ -7,7 +7,7 @@
     <ul id="menu-1">
        <label for="menu-novo">
          <li>
-               <img src="./_imagens/registro.png" width="28" height="28" alt="alt"/> <a href="./index.php">Novo </a> <input type="checkbox" id="menu-novo"><div id="seta-novo"></div> 
+               <img src="./_imagens/registro.png" width="28" height="28" alt="alt"/> <a href="./_index.php">Novo </a> <input type="checkbox" id="menu-novo"><div id="seta-novo"></div> 
          <ul id="menu-2">
                 <li><a href="_new.php?menu-new=3">Cadastrar cliente</a></li>
                 <li><a href="_new.php?menu-new=2">Cadastrar produtos</a></li>
@@ -66,6 +66,7 @@
             <ul id="menu-7">
                 <li><a href="./_pedidos.php?menu-pedido=1">Novo Pedido</a></li>
                 <li><a href="./_pedidos.php?menu-pedido=2">Consultar Pedido</a></li>
+                
                 
             </ul>
                

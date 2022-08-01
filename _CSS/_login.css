@@ -1,0 +1,64 @@
+      
+form{
+    background-color: #fff;
+    width: 540px;
+    height: auto;
+    padding: 20px;
+    margin: 40px auto;
+    position: absolute;
+    z-index: 2;
+    left: 500px;
+    border: 1px #eee solid;
+}
+#login-table{
+    width: 500px;
+    height: 400px;
+    border-collapse: collapse;
+    border: 1px #ccc solid;
+}
+#login-table th h1{
+    text-align: center;
+    width: 100%;
+    padding: 15px 0 0 0;
+}
+#login-table th{
+    text-indent: 75px;
+    height: 35px;
+    text-align: left;
+}
+#login-table td{
+   
+    height: 40px;
+    text-align: center;
+   
+}
+.campo-login:focus {
+
+}
+.campo-login{
+    outline: none;
+    padding: 12px;
+    width:350px;
+    text-indent: 10px;
+    border: none;
+    border-bottom: 1px #194574 solid;
+    background: none;
+    font-size: 20px;
+}
+.icon {
+    padding: 10px;
+    min-height: 41px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+   border-bottom: 1px #194574 solid;
+}
+.bt{
+    height: 40px;
+    width: 250px;
+    background-color: #194574;
+    color: #fff;
+    border: none;
+    margin-top: 5px;
+}
