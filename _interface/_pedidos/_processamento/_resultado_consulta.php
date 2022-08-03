@@ -64,8 +64,8 @@ while($dados = mysqli_fetch_array($result)){
         <td><?php echo $newDates; ?></td>
         <td><?php echo $status; ?></td>
         <td><?php echo $nota_fiscal; ?></td>
-        <td><input type="hidden" name="id_cliente" form="mostrar" value="<?php echo $id_cliente; ?>"><button type="submit" class="bt" form="mostrar" name="id" value="<?php echo $id_pedido; ?>"> Mostrar</button></td>
-        <td><input type="hidden" name="id_cliente" form="mostrar" value="<?php echo $id_cliente; ?>"><button type="submit" class="bt" form="separar" name="id" value="<?php echo $id_pedido; ?>"> Separar</button></td>
+        <td><input type="hidden" name="id_cliente" form="mostrar" value="<?php echo $id_cliente; ?>"><button type="submit" class="bt" form="mostrar" name="id_pedido" value="<?php echo $id_pedido; ?>"> Mostrar</button></td>
+        <td><input type="hidden" name="id_cliente" form="separar" value="<?php echo $id_cliente; ?>"><button type="submit" class="bt" form="separar" name="id_pedido" value="<?php echo $id_pedido; ?>"> Separar</button></td>
     </tr>
     <?php
     }

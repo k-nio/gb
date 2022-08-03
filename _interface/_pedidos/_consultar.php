@@ -3,10 +3,11 @@ $pesquisa = filter_input(INPUT_POST,'pesquisar');
 if($pesquisa){
     include './_interface/_pedidos/_processamento/_resultado_consulta.php';
 }
-$mostrar = filter_input(INPUT_POST,'id');
+
+$mostrar = filter_input(INPUT_POST,'id_pedido');
 if($mostrar){
     
-    include './_interface/_pedidos/_pedido_select.php';
+    include './_interface/_pedidos/_processamento/_pedido_select.php';
 }
 
 ?>
@@ -26,7 +27,7 @@ if($mostrar){
                 <option value=" p.data_entrega">Data Entrega</option>
                 <option value=" p.id_pedido">N° Pedido</option>
                 <option value="c.nome">Cliente</option>
-                <option value=" p.situacao">Situacao</option>
+               
                 <option value=" p.nf">Nota Fiscal</option>
             </select>
                 <select name="ordem" class="campo-input">

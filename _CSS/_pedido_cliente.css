@@ -12,14 +12,14 @@
 }
  #form-cliente{
         padding: 30px;
-        width: 590px;
+        width: 1200px;
         height: auto;
         background-color: #fff;
         margin: 20px auto;
     }
     #cadastro-clientes{
         border-collapse: collapse;
-        width: 500px;
+        width: 1000px;
         height: auto;
         
         margin: auto;
@@ -30,8 +30,10 @@
             text-align: center;
         }
         #cadastro-clientes th{
-            text-align: left;
-            height: 35px;
+             text-align: left;
+            height: 50px;
+            text-indent: 5px;
+            width: 115px;
         }
     #cadastro-clientes td{
         height: 45px;

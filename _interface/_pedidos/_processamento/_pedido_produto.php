@@ -1,18 +1,23 @@
 <link rel="stylesheet" href="./_CSS/_pedido.css"/>
 <?php
- $id_cliente = filter_input(INPUT_POST, 'id_cliente');
- $id_pedido = filter_input(INPUT_POST, 'id');
- 
+
+$selecionar = filter_input(INPUT_POST,'selecionar');
+$id_cliente = filter_input(INPUT_POST,'id_cliente');
+$id_pedido = filter_input(INPUT_POST,'id_pedido');
+$id_funcionario = $_SESSION['id_funcionario'];
+
+if($selecionar){
+    
+    include './_interface/_pedidos/_processamento/_processamento_salvar_pedido.php';
+    
+}
+$adicionar = filter_input(INPUT_POST,'adicionar');
+if($adicionar){
+    include './_interface/_pedidos/_processamento/_processamento_adicionar.php';                              
+}
 include './_interface/_pedidos/_processamento/_consultas.php';
-
 ?>
-<style>
-    #tb-search,#search-form{
-        display: none;
-    }
-</style>
-
-<a id="fx" class="no-print" href="">&times;</a>
+<a id="fx" class="no-print" href="./_pedidos.php?menu-pedido=1">&times;</a>
 <div id="folhas">
     <div id="header-pedido">
                    <img id="logo" src="./_imagens/IMBA Química - 350pxb.png" alt="logo"/>
@@ -27,9 +32,9 @@ include './_interface/_pedidos/_processamento/_consultas.php';
 <fieldset id="dados-field">
     <legend>Dados cliente</legend>
    <p>
-    <label>Id Cliente: </label><?php echo $id_cliente; ?> <br>
+    <label>Id Cliente: </label><?php echo $id; ?> <br>
     <label>Cliente: </label><?php echo $nome; ?> <br>   
-    <label>Endereço: </label><br>
+    
     <label>Rua: </label><?php echo $rua; ?>       
     <label>N°:      </label><?php echo $numero; ?> 
     <label>Complemento: </label> <?php echo $complemento; ?><br>
@@ -49,41 +54,47 @@ include './_interface/_pedidos/_processamento/_consultas.php';
         <label>Obs.:</label>            <?php echo " $nota_";?>
     </p>     
 </fieldset>
+    <form action="" id="arrow" method="post"><input type="hidden" name="id_cliente" value="<?php echo $id_cliente;?>">
+    <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>"> </form>
 <form action="" method="post"> 
 <table id="tabela-produtos">
     <tr><th colspan="6"><h2>Dados dos produtos</h2></th></tr>
     <tr>
         <th>Código do produto</th>
-        <th>Descrição do produto</th>
-        <th>Quantidade</th>
+        <th><button type="submit" style="width: 20px; height: 20px; background: none;border: none; margin: 0 20px;" name="ordem" form="arrow" value="ASC"><img style="width: 20px; height: 20px;" src="./_imagens/seta-dupla-para-cima.png"></button >Descrição do produto <button style="width: 20px; height: 20px; background: none;border: none; margin: 0 20px;" type="submit" name="ordem" form="arrow" value="DESC"><img style="width: 20px; height: 20px;" src="./_imagens/setas-duplas-para-baixo.png"></button></th>
+        <th>Quantidade  </th>
         <th>Unidade</th>
         <th>Volume</th>
         <th></th>
         
     </tr>
 <?php
-$consulta = $con->pesquisar("SELECT o.quantidade, p.produto, p.versao, p.id_produto FROM `_pedido_order` o JOIN _produto p ON p.id_produto = o.`id_produto` WHERE o.id_pedido = '$id_pedido' order by produto asc");
+$ordem = filter_input(INPUT_POST, 'ordem');
+
+$consulta = $con->pesquisar("SELECT o.quantidade, p.produto, p.versao, p.id_produto, o.volume,o.unidade FROM `_pedido_order` o JOIN _produto p ON p.id_produto = o.`id_produto` WHERE o.id_pedido = '$id_pedido' order by produto $ordem");
 while ($dados = mysqli_fetch_array($consulta)){
        $quantidade_db = $dados['quantidade'];
        $versao_db = $dados['versao'];
        $produto_db = $dados['produto'];
        $id_produto_db = $dados['id_produto'];
+       $unidade_db = $dados['volume'];
+       $volume_db = $dados['unidade'];
 ?>
     
     <tr>
         <td><?php echo "$id_produto_db"; ?></td>
         <td><?php echo "$produto_db $versao_db";  ?></td>
         <td><?php echo "$quantidade_db"; ?></td>
-        <td><?php echo "un"; ?></td>
-        <td><?php echo "L";?></td>
+        <td><?php echo "$volume_db";?></td>
+        <td><?php echo "$unidade_db"; ?></td>
     </tr>
     <?php
-    }
+    } 
     ?>
-    <tr class="no-print">
+    <tr class="no-print"><form action="" method="post"> 
         <td>
     <input type="hidden" name="id_cliente" value="<?php echo $id_cliente;?>">
-    <input type="hidden" name="id_pedido" value="<?php echo $id;?>">
+    <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>">
     <input type="number" class="campo-input" name="id_produto" value="">
         </td>
         <td>
@@ -116,13 +127,13 @@ while ($dados = mysqli_fetch_array($consulta)){
             <input type="text" class="campo-input" required="Preencha a quantidade" placeholder="Quantidade" name="quantidade" value="">
            </td>
                    <td>
-                       <select class="campo-input">
+                       <select class="campo-input" name="unidade">
                    <option value="unidade">Unidade</option>
                    <option value="caixa">Caixa</option>
                </select>
                    </td>
                    <td>
-               <select class="campo-input">
+                       <select class="campo-input" name="volume">
                    <option value="500 ml">500 mL</option>
                    <option value="1 Litro">1 Litro</option>
                    <option value="2 Litros">2 Litros</option>
@@ -137,12 +148,13 @@ while ($dados = mysqli_fetch_array($consulta)){
 
 </table>
 </form>
-    <form class="no-print" action="./_interface/_pedidos/_processamento/_finalizar.php" method="post">
+    <form action="./_interface/_pedidos/_processamento/_finalizar.php" method="post">
         
         <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>">
         
         <input  type="submit" class="bt" name="finalizar" value="Cancelar">
         <input  type="submit" class="bt" name="finalizar" value="Rascunho">
         <input  type="submit" class="bt" name="finalizar" value="Finalizar">
+        
     </form>
 </div>

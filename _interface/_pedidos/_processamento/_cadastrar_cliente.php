@@ -1,8 +1,8 @@
 <?php
-$cadastrar_cliente = filter_input(INPUT_POST,'cadastrar-cliente');
+$cadastrar_cliente = filter_input(INPUT_POST,'cadastrar');
+
 if($cadastrar_cliente){
     
-
 $customer = filter_input(INPUT_POST,'nome');
 $phone = filter_input(INPUT_POST,'telefone');
 $mail = filter_input(INPUT_POST,'email');
@@ -15,16 +15,19 @@ $town = filter_input(INPUT_POST,'cidade');
 $state = filter_input(INPUT_POST,'estado');
 $identidade = filter_input(INPUT_POST,'identidade');
 $note = filter_input(INPUT_POST,'note');
-$save = $con->salvar('cliente','`id_cliente`, `nome`, `telefone`, `rua`, `email`, `note`, `numero`, `bairro`, `cep`, `complemento`, `cidade`, `estado`, `identidade`',"null,'$customer','$phone','$street','$mail','$note','$number','$nwood','$cep', '$complemento','$town','$state','$identidade'");
+$save = $con->pesquisar("INSERT INTO `cliente`(`id_cliente`, `nome`, `telefone`, `rua`, `email`, `note`, `numero`, `bairro`, `cep`, `complemento`, `cidade`, `estado`, `identidade`) VALUES (null,'$customer','$phone','$street','$mail','$note','$number','$nwood','$cep', '$complemento','$town','$state','$identidade')");
+                                                  
 
 }
 ?>
-<link rel="stylesheet" href="./_CSS/_new_cliente.css"/>
+<link rel="stylesheet" href="./_CSS/_pedido_cliente.css"/>
 <title>Cadastrar cliente</title>
-
+<div id="display-pedido">
+  <a href="" class="no-print" id="fx">&times;</a>  
 <form id="form-cliente" method="post" action="">
+    
     <table id="cadastro-clientes">
-        <tr><th colspan="4"><h2>Cadastro de Cliente</h2></th></tr>
+               <tr><th colspan="4"><h2>Cadastro de Cliente</h2></th></tr>
         <tr><th colspan="4">Nome:</th></tr>
                 <tr><td colspan="4"> <input class="campo-cliente" type="text" name="nome" value=""></td> </tr>
                 <tr><th colspan="4">Telefone:</th></tr>
@@ -49,9 +52,11 @@ $save = $con->salvar('cliente','`id_cliente`, `nome`, `telefone`, `rua`, `email`
             
                 <tr>
                     <td colspan="4">
-                        <input type="submit" class="bt-cliente" name="cadastrar-cliente" value="Cadastrar"> 
+                       <input type="hidden" class="bt-cliente" name="cadastrar" value="cadastrar"> 
+                        <input type="submit" class="bt-cliente" name="add" value="Cadastrar"> 
                     </td>
-                </tr>  
-               
+                </tr> 
+                <tr><td><?php echo "INSERT INTO `cliente`(`id_cliente`, `nome`, `telefone`, `rua`, `email`, `note`, `numero`, `bairro`, `cep`, `complemento`, `cidade`, `estado`, `identidade`) VALUES (null,'$customer','$phone','$street','$mail','$note','$number','$nwood','$cep', '$complemento','$town','$state','$identidade')"?></td></tr>
             </table> 
         </form>
+</div>

@@ -11,15 +11,14 @@
                  
                  $add = filter_input(INPUT_POST,'add');
                  if($add){
-                     include './_interface/_pedidos/_cadastrar_cliente.php';
+                     include './_interface/_pedidos/_processamento/_cadastrar_cliente.php';
                  }
                  break;
              case 2: 
                  include './_interface/_pedidos/_consultar.php'; 
                  break;
              case 3:
-                 
-                 include './_interface/_pedidos/_pedido_produto.php';
+                 include './_interface/_pedidos/_processamento/_pedido_produto.php';
                  break;
              case 4: 
                  include './_interface/_pedidos/_separar_pedido.php'; 

@@ -1,17 +1,28 @@
 <link rel="stylesheet" href="./_CSS/_pedido.css"/>
+<style>
+    #search-form{
+        display: none;
+    }
+</style>
 <?php
 
 $selecionar = filter_input(INPUT_POST,'selecionar');
 $id_cliente = filter_input(INPUT_POST,'id_cliente');
 $id_pedido = filter_input(INPUT_POST,'id_pedido');
-$id_funcionario = 1;
+$id_funcionario = $_SESSION['id_funcionario'];
 if($selecionar){
+    
     include './_interface/_pedidos/_processamento/_processamento_salvar_pedido.php';
     
 }
 $adicionar = filter_input(INPUT_POST,'adicionar');
 if($adicionar){
     include './_interface/_pedidos/_processamento/_processamento_adicionar.php';                              
+}
+$editar = filter_input(INPUT_POST,'Editar');
+if($editar){
+    $id_order = filter_input(INPUT_POST,'id_order');
+    echo "$id_order";
 }
 include './_interface/_pedidos/_processamento/_consultas.php';
 ?>
@@ -52,36 +63,69 @@ include './_interface/_pedidos/_processamento/_consultas.php';
         <label>Obs.:</label>            <?php echo " $nota_";?>
     </p>     
 </fieldset>
+    <form action="" id="arrow" method="post"><input type="hidden" name="id_cliente" value="<?php echo $id_cliente;?>">
+    <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>"> </form>
 <form action="" method="post"> 
 <table id="tabela-produtos">
     <tr><th colspan="6"><h2>Dados dos produtos</h2></th></tr>
     <tr>
         <th>Código do produto</th>
-        <th>Descrição do produto</th>
-        <th>Quantidade</th>
+        <th><button type="submit" style="width: 20px; height: 20px; background: none;border: none; margin: 0 20px;" name="ordem" form="arrow" value="ASC"><img style="width: 20px; height: 20px;" src="./_imagens/seta-dupla-para-cima.png"></button >Descrição do produto <button style="width: 20px; height: 20px; background: none;border: none; margin: 0 20px;" type="submit" name="ordem" form="arrow" value="DESC"><img style="width: 20px; height: 20px;" src="./_imagens/setas-duplas-para-baixo.png"></button></th>
+        <th>Quantidade  </th>
         <th>Unidade</th>
         <th>Volume</th>
         <th></th>
         
     </tr>
 <?php
-$consulta = $con->pesquisar("SELECT o.quantidade, p.produto, p.versao, p.id_produto FROM `_pedido_order` o JOIN _produto p ON p.id_produto = o.`id_produto` WHERE o.id_pedido = '$id_pedido' order by produto asc");
+$ordem = filter_input(INPUT_POST, 'ordem');
+
+$consulta = $con->pesquisar("SELECT o.quantidade, o.id_order, p.produto, p.versao, p.id_produto, o.volume,o.unidade FROM `_pedido_order` o JOIN _produto p ON p.id_produto = o.`id_produto` WHERE o.id_pedido = '$id_pedido' order by produto $ordem");
 while ($dados = mysqli_fetch_array($consulta)){
        $quantidade_db = $dados['quantidade'];
        $versao_db = $dados['versao'];
        $produto_db = $dados['produto'];
        $id_produto_db = $dados['id_produto'];
+       $unidade_db = $dados['unidade'];
+       $volume_db = $dados['volume'];
+       $id_db = $dados['id_order'];
 ?>
-    
+    <?php echo "<form action='' id='$id_db' method='post'></form>";?>
     <tr>
-        <td><?php echo "$id_produto_db"; ?></td>
-        <td><?php echo "$produto_db $versao_db";  ?></td>
-        <td><?php echo "$quantidade_db"; ?></td>
-        <td><?php echo "un"; ?></td>
-        <td><?php echo "L";?></td>
+        <td><input type="text" class="campo-input" readonly="" name="id_produto" form="<?php echo $id_db;?>" value="<?php echo $id_produto_db; ?>"> </td>
+        <td><input type="text" class="campo-input" readonly="" name="produto" form="<?php echo $id_db;?>" value="<?php echo $produto_db.' '.$versao_db;?>"> </td>
+        <td><input type="text" class="campo-input" name="quantidade" form="<?php echo $id_db;?>" value="<?php echo $quantidade_db; ?>"></td>
+        <td>
+              <select class="campo-input" form="<?php echo $id_db;?>" name="unidade">
+                   <option value="<?php echo $unidade_db; ?>"><?php echo $unidade_db; ?></option>
+                   <option value="unidade">Unidade</option>
+                   <option value="caixa">Caixa</option>
+               </select>
+        </td>
+        <td>
+    
+              <select class="campo-input" form="<?php echo $id_db;?>" name="volume">
+                  <option  value="<?php echo $volume_db;?>"><?php echo $volume_db;?></option>
+                   <option value="500 ml">500 mL</option>
+                   <option value="1 Litro">1 Litro</option>
+                   <option value="2 Litros">2 Litros</option>
+                   <option value="5 Litros">5 Litros</option>
+                   <option value="1kg">1 Quilo</option>
+               </select>
+        
+        
+        
+        </td>
+        <td><input type="submit" class="bt" name="Editar" form="<?php echo $id_db;?>" value="Editar">
+            <input type="hidden" name="id_order" form="<?php echo $id_db;?>" value="<?php echo $id_db;?>">
+            <input type="hidden" name="id_cliente" value="<?php echo $id_cliente;?>" form="<?php echo $id_db;?>" >
+            <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>" form="<?php echo $id_db;?>" >
+            
+        </td>
+        
     </tr>
     <?php
-    }
+    } 
     ?>
     <tr class="no-print">
         <td>
@@ -119,13 +163,13 @@ while ($dados = mysqli_fetch_array($consulta)){
             <input type="text" class="campo-input" required="Preencha a quantidade" placeholder="Quantidade" name="quantidade" value="">
            </td>
                    <td>
-                       <select class="campo-input">
+                       <select class="campo-input" name="unidade">
                    <option value="unidade">Unidade</option>
                    <option value="caixa">Caixa</option>
                </select>
                    </td>
                    <td>
-               <select class="campo-input">
+                       <select class="campo-input" name="volume">
                    <option value="500 ml">500 mL</option>
                    <option value="1 Litro">1 Litro</option>
                    <option value="2 Litros">2 Litros</option>

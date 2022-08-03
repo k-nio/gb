@@ -13,6 +13,7 @@
              $username = $dados['nome'];
              $senha_db = $dados['senha'];
              $nivel = $dados['nivel'];
+             $id_funcionario = $dados['id_funcionario'];
          }
         
          if($email_db != "" && $senha_db != ""){ 
