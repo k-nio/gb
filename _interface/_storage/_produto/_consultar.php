@@ -17,13 +17,11 @@
     
     if($situacao){
         $complemento = "SELECT p.id_produto, e.quantidade,p.produto, e.volume, e.unidade,e.lote,e.validade,e.fabricacao,e.situacao,e.status FROM `estoque_produto` e JOIN _produto p on p.id_produto = e.id_produto 
-WHERE e.id_produto = '$id_produto' AND e.`situacao` = '$situacao' 
-GROUP BY p.id_produto ORDER BY p.produto ASC
+WHERE e.id_produto = '$id_produto' AND e.`situacao` = '$situacao' ORDER BY p.produto ASC
 ";
         } else {
         $complemento = "SELECT p.id_produto, e.quantidade,p.produto, e.volume, e.unidade,e.lote,e.validade,e.fabricacao,e.situacao,e.status FROM `estoque_produto` e JOIN _produto p on p.id_produto = e.id_produto 
-WHERE 1
-GROUP BY p.id_produto ORDER BY p.produto ASC";
+WHERE 1 ORDER BY p.produto ASC";
         }
     $id_produto = filter_input(INPUT_POST,'search');
     $result = $con->pesquisar($complemento);

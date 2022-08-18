@@ -22,7 +22,13 @@ if($adicionar){
 $editar = filter_input(INPUT_POST,'Editar');
 if($editar){
     $id_order = filter_input(INPUT_POST,'id_order');
-    echo "$id_order";
+    $id_produto_ = filter_input(INPUT_POST,'id_produto');
+    $qt = filter_input(INPUT_POST,'quantidade');
+    $vol = filter_input(INPUT_POST,'volume');
+    $un = filter_input(INPUT_POST,'unidade');
+    
+    $editar_db = $con->pesquisar("UPDATE `_pedido_order` SET `id_produto` = '$id_produto_', `quantidade` = '$qt', `volume` = '$vol', `unidade` = '$un' WHERE `_pedido_order`.`id_order` = $id_order");
+   
 }
 include './_interface/_pedidos/_processamento/_consultas.php';
 ?>
@@ -64,8 +70,12 @@ include './_interface/_pedidos/_processamento/_consultas.php';
     </p>     
 </fieldset>
     <form action="" id="arrow" method="post"><input type="hidden" name="id_cliente" value="<?php echo $id_cliente;?>">
-    <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>"> </form>
-<form action="" method="post"> 
+    <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>"> 
+    </form>
+    <form action="" id="add" method="post">
+    <input type="hidden" name="id_cliente" value="<?php echo $id_cliente;?>">
+    <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>">
+    </form>
 <table id="tabela-produtos">
     <tr><th colspan="6"><h2>Dados dos produtos</h2></th></tr>
     <tr>
@@ -89,11 +99,12 @@ while ($dados = mysqli_fetch_array($consulta)){
        $unidade_db = $dados['unidade'];
        $volume_db = $dados['volume'];
        $id_db = $dados['id_order'];
-?>
-    <?php echo "<form action='' id='$id_db' method='post'></form>";?>
+       echo "<form action='' id='$id_db' method='post'></form>";
+       
+       ?>
     <tr>
-        <td><input type="text" class="campo-input" readonly="" name="id_produto" form="<?php echo $id_db;?>" value="<?php echo $id_produto_db; ?>"> </td>
-        <td><input type="text" class="campo-input" readonly="" name="produto" form="<?php echo $id_db;?>" value="<?php echo $produto_db.' '.$versao_db;?>"> </td>
+        <td> <input type="text" readonly="" class="campo-input"  name="id_produto" form="<?php echo $id_db;?>" value="<?php echo $id_produto_db; ?>"> </td>
+        <td><input type="text" readonly="" class="campo-input"  name="produto" form="<?php echo $id_db;?>" value="<?php echo $produto_db.' '.$versao_db;?>"> </td>
         <td><input type="text" class="campo-input" name="quantidade" form="<?php echo $id_db;?>" value="<?php echo $quantidade_db; ?>"></td>
         <td>
               <select class="campo-input" form="<?php echo $id_db;?>" name="unidade">
@@ -110,13 +121,13 @@ while ($dados = mysqli_fetch_array($consulta)){
                    <option value="1 Litro">1 Litro</option>
                    <option value="2 Litros">2 Litros</option>
                    <option value="5 Litros">5 Litros</option>
-                   <option value="1kg">1 Quilo</option>
+                   <option value="1 kg">1 Quilo</option>
                </select>
         
         
         
         </td>
-        <td><input type="submit" class="bt" name="Editar" form="<?php echo $id_db;?>" value="Editar">
+        <td><button type="submit" style="visibility: hidden;" name="Editar" form="<?php echo $id_db;?>" value="Editar"></button>
             <input type="hidden" name="id_order" form="<?php echo $id_db;?>" value="<?php echo $id_db;?>">
             <input type="hidden" name="id_cliente" value="<?php echo $id_cliente;?>" form="<?php echo $id_db;?>" >
             <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>" form="<?php echo $id_db;?>" >
@@ -129,13 +140,12 @@ while ($dados = mysqli_fetch_array($consulta)){
     ?>
     <tr class="no-print">
         <td>
-    <input type="hidden" name="id_cliente" value="<?php echo $id_cliente;?>">
-    <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>">
-    <input type="number" class="campo-input" name="id_produto" value="">
+   
+            <input type="number" form="add" class="campo-input" name="id_produto" value="">
         </td>
         <td>
     
-    <select class="campo-input" name="produto">
+    <select class="campo-input" form="add" name="produto">
         
         <option value="">Selecione o produto</option>
      <?php 
@@ -160,16 +170,16 @@ while ($dados = mysqli_fetch_array($consulta)){
     </select >
         </td>
         <td>      
-            <input type="text" class="campo-input" required="Preencha a quantidade" placeholder="Quantidade" name="quantidade" value="">
+            <input type="text" class="campo-input"  form="add" required="Preencha a quantidade" placeholder="Quantidade" name="quantidade" value="">
            </td>
                    <td>
-                       <select class="campo-input" name="unidade">
+                       <select class="campo-input" form="add" name="unidade">
                    <option value="unidade">Unidade</option>
                    <option value="caixa">Caixa</option>
                </select>
                    </td>
                    <td>
-                       <select class="campo-input" name="volume">
+                       <select class="campo-input" form="add" name="volume">
                    <option value="500 ml">500 mL</option>
                    <option value="1 Litro">1 Litro</option>
                    <option value="2 Litros">2 Litros</option>
@@ -177,13 +187,13 @@ while ($dados = mysqli_fetch_array($consulta)){
                    <option value="1kg">1 Quilo</option>
                </select></td>
            <td>
-    <input type="submit" class="bt" name="adicionar" value="Adicionar">
+    <input type="submit" class="bt" name="adicionar" form="add" value="Adicionar">
         </td>
     
     </tr>
 
 </table>
-</form>
+   
     <form action="./_interface/_pedidos/_processamento/_finalizar.php" method="post">
         
         <input type="hidden" name="id_pedido" value="<?php echo $id_pedido;?>">

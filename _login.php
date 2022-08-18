@@ -1,5 +1,6 @@
 <?php
-include './conection/_conecta.php';
+$var = 1;
+include './conection/_conection.php';
 $logar = filter_input(INPUT_POST,'logar');
 
 if($logar){

@@ -138,7 +138,7 @@ while ($dados = mysqli_fetch_array($consulta)){
                    <option value="1 Litro">1 Litro</option>
                    <option value="2 Litros">2 Litros</option>
                    <option value="5 Litros">5 Litros</option>
-                   <option value="1kg">1 Quilo</option>
+                   <option value="1 kg">1 Quilo</option>
                </select></td>
            <td>
     <input type="submit" class="bt" name="adicionar" value="Adicionar">

@@ -1,5 +1,6 @@
 <?php
-include './conection/_conecta.php';
+$var = 1;
+include './conection/_conection.php';
 include './conection/_login_autentication.php';
 
  if(!isset($_SESSION)){ 

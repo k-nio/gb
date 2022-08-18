@@ -1,6 +1,13 @@
              
 <section class="display-content">
     <div class="folha">
+        <nav ><ul style="color:#000;">
+                <li><a href="_pedidos.php?menu-pedido=1">Novo Pedido</a></li>
+                <li><a href="_pedidos.php?menu-pedido=2">Consultar Pedidos</a></li>
+                <li><a href="_pedidos.php?menu-pedido=3">Pedidos concluidos</a></li>
+            </ul>
+        </nav>
+        
        <?php
         
        $menu_pedido = filter_input(INPUT_GET,'menu-pedido');

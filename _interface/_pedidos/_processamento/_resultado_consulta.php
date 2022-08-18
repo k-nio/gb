@@ -5,7 +5,7 @@
 </style>
 <a id="fx" href="">&times;</a>
 <form action="" id="mostrar" method="post"></form>
-<form action="./_pedidos.php?menu-pedido=4" id="separar" method="post"></form>
+<form action="./_pedidos_1.php?menu-pedido=4" id="separar" method="post"></form>
 <table id="tabela-consulta">
     <tr><th style="background-color: #fff; color: #000; height: 50px;" colspan="7"><h1>Pedidos</h1></th></tr>
     <tr>

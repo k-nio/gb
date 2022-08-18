@@ -1,7 +1,6 @@
 <?php
 
-
-         SESSION_START();
+SESSION_START();
          $email_user = $_SESSION['usuario'] ;
          $password_user = $_SESSION['password']; 
          

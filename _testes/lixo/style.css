@@ -1,0 +1,29 @@
+
+@media screen and (max-width: 992px) {
+*{
+     font-size:40px;
+     margin: 0;
+     padding: 0;
+}
+ul{
+    width:900px;
+    height:auto;
+    float:left;
+    margin:80px auto;
+    text-align:center;
+    
+}
+ul li{
+    list-style:none;
+    font-size:48px;
+}
+ul li .campo-ord{
+    height:120px;
+    width:880px;
+    text-align:center;
+    border:5px #194574 solid;
+    border-radius:40px;
+    background-color:#fff;
+    text-indent:50px;
+}
+}
